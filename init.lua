@@ -1,0 +1,3 @@
+-- Custom mappings
+require("adamglinski")
+
