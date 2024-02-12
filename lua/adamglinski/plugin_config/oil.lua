@@ -1,4 +1,5 @@
 -- Issue: Its a bit slow
+-- 01-01-2024: Seems fine now? idk...
 
 return {
     'stevearc/oil.nvim',

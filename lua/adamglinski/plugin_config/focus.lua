@@ -8,6 +8,11 @@ return {
                 hybridnumber = true,
                 absolutenumber_unfocussed = true,
                 cursorline = false,
+            },
+            config = {
+                autoresize = {
+                    enable = true,
+                }
             }
         })
 

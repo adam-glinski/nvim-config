@@ -30,5 +30,6 @@ vim.opt.updatetime = 50
 vim.cmd('language en_US.utf8')
 
 vim.opt.foldmethod = "syntax"
+vim.opt.foldlevel = 99
 
 vim.g.mapleader = " "
