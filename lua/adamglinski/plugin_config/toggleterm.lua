@@ -4,17 +4,17 @@ return {
     version = '*',
     config = function ()
         require("toggleterm").setup{
-            shell = "pwsh.exe -NoLogo",
+            -- shell = "pwsh.exe -NoLogo",
         }
 
         -- Windows new powershell
         -- Prob junk but if I remove this and break something aint fixing it again
-        vim.cmd("set shell=pwsh.exe")
-        vim.cmd("set shellxquote=")
-        vim.cmd("let &shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command '")
-        vim.cmd("let &shellquote   = ''")
-        vim.cmd("let &shellpipe    = '| Out-File -Encoding UTF8 %s'")
-        vim.cmd("let &shellredir   = '| Out-File -Encoding UTF8 %s'")
+        -- vim.cmd("set shell=pwsh.exe")
+        -- vim.cmd("set shellxquote=")
+        -- vim.cmd("let &shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command '")
+        -- vim.cmd("let &shellquote   = ''")
+        -- vim.cmd("let &shellpipe    = '| Out-File -Encoding UTF8 %s'")
+        -- vim.cmd("let &shellredir   = '| Out-File -Encoding UTF8 %s'")
 
         -- FIXME: Remove useless params
         function ToggleTermInCWD(direction, size, shell)
@@ -35,15 +35,16 @@ return {
         local Terminal = require("toggleterm.terminal").Terminal
         local lazygit = Terminal:new({
             cmd = "lazygit",
-            hidden = true,
+            hidden = false,
             direction = "float",
         })
 
         -- TODO: bind it
-        function LazygitToggle()
-            lazygit:toggle()
-        end
+        -- function LazygitToggle()
+        --     lazygit:toggle()
+        -- end
 
+        vim.keymap.set('n', '<leader>tg', function() lazygit:toggle() end, { desc = "Lazygit" })
 
         -- Terminal mappings
         function SetTerminalKeymaps()

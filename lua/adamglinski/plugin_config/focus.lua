@@ -5,13 +5,13 @@ return {
         local focus = require("focus")
         focus.setup({
             ui = {
-                hybridnumber = true,
-                absolutenumber_unfocussed = true,
+                hybridnumber = false,
+                absolutenumber_unfocussed = false,
                 cursorline = false,
             },
             config = {
                 autoresize = {
-                    enable = true,
+                    enable = false,
                 }
             }
         })
@@ -26,8 +26,9 @@ return {
         function ToggleAutoFocus()
             focus.config.autoresize.enable = not focus.config.autoresize.enable
         end
+        focus.config.autoresize.enable = false
 
         vim.keymap.set("n", "<leader>;f", function () ToggleAutoFocus() end, { desc = "Toggle split autofocus." })
+        vim.keymap.set("n", "<leader>;n", function () ToggleNumbersInBuffer() end, { desc = "Toggle focus line numbers." })
     end
-
 }

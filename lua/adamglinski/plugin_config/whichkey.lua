@@ -20,6 +20,9 @@ return {
             h = {
                 name = "harpoon"
             },
+            d = {
+                name = "dap"
+            },
             [";"] = {
                 name = "toggles"
             },
