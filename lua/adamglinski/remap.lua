@@ -15,7 +15,7 @@ vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Replace without yanking" })
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Copy to sys clip" })
 vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Copy to sys clip" })
 
-vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete without yanking" })
+vim.keymap.set({ "n", "v" }, "<leader>x", [["_d]], { desc = "Delete without yanking" })
 
 -- This is going to get me cancelled
 vim.keymap.set("i", "<C-c>", "<Esc>")
@@ -38,4 +38,8 @@ vim.keymap.set("n", "<leader>ep", "<cmd>e " .. NVIM_DIR .. "\\lua\\adamglinski\\
     { desc = "Edit plugin file" })
 -- vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
-vim.keymap.set("n", "<leader><leader>", function() vim.cmd("so") end, { desc = "Source file" })
+-- vim.keymap.set("n", "<leader><leader>", function() vim.cmd("so") end, { desc = "Source file" })
+vim.keymap.set("n", "<leader>db", "<cmd> DapToggleBreakpoint <cr>", { desc = "Toggle breakpoint" })
+vim.keymap.set("n", "<leader>dr", "<cmd> DapContinue <cr>", { desc = "Start or continue debugging" })
+
+

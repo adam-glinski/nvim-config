@@ -14,7 +14,7 @@ vim.opt.wrap = false
 vim.opt.swapfile = false
 vim.opt.backup = false
 -- FILL: Fix depending on the system
-vim.opt.undodir = NVIM_DATA_DIR .. "\\undodir"
+-- vim.opt.undodir = NVIM_DATA_DIR .. "/undodir"
 vim.opt.undofile = true
 
 vim.opt.hlsearch = false
@@ -27,7 +27,7 @@ vim.opt.signcolumn = "yes"
 
 vim.opt.updatetime = 50
 
-vim.cmd('language en_US.utf8')
+-- vim.cmd('language en_US.utf8')
 
 vim.opt.foldmethod = "syntax"
 vim.opt.foldlevel = 99
