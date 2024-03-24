@@ -79,7 +79,7 @@ return {
 
             vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, {buffer = bufnr, remap = false, desc = "Signature help"})
             -- vim.keymap.set("i", "<C-t>", function() vim.lsp.buf.request() end, {buffer = bufnr, remap = false, desc = "Switch between source/header"})
-            vim.keymap.set("i", "<C-t>", function() --[[TODO: Run my command]]  end, {buffer = bufnr, remap = false, desc = "Switch between source/header"})
+            vim.keymap.set("i", "<C-t>", "<cmd>ClangdSwitchSourceHeader<cr>", {buffer = bufnr, remap = false, desc = "Switch between source/header"})
         end)
 
         lspconfig.lua_ls.setup({})
@@ -90,6 +90,7 @@ return {
             single_file_support=true,
         })
         lspconfig.cmake.setup({})
+        lspconfig.bashls.setup({})
 
 
         lsp.setup()
