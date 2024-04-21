@@ -42,4 +42,22 @@ vim.keymap.set("n", "<leader>ep", "<cmd>e " .. NVIM_DIR .. "\\lua\\adamglinski\\
 vim.keymap.set("n", "<leader>db", "<cmd> DapToggleBreakpoint <cr>", { desc = "Toggle breakpoint" })
 vim.keymap.set("n", "<leader>dr", "<cmd> DapContinue <cr>", { desc = "Start or continue debugging" })
 
-
+-- Nvim-spider remaps
+vim.keymap.set(
+	{ "n", "o", "x" },
+	"w",
+	"<cmd>lua require('spider').motion('w')<CR>",
+	{ desc = "Next word(spider)" }
+)
+vim.keymap.set(
+	{ "n", "o", "x" },
+	"e",
+	"<cmd>lua require('spider').motion('e')<CR>",
+	{ desc = "Next end of word(spider)" }
+)
+vim.keymap.set(
+	{ "n", "o", "x" },
+	"b",
+	"<cmd>lua require('spider').motion('b')<CR>",
+	{ desc = "Previous word(spider)" }
+)
