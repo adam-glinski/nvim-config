@@ -5,7 +5,7 @@ return {
     build = ':TSUpdate',
     config = function ()
         require 'nvim-treesitter.install'.prefer_git = false
-        require 'nvim-treesitter.install'.compilers = { "zig", "clangd" } -- Compilers prority list
+        require 'nvim-treesitter.install'.compilers = { "zig", "clang" } -- Compilers prority list
 
         require "nvim-treesitter.configs".setup {
             -- A list of parser names, or "all" (the five listed parsers should always be installed)
