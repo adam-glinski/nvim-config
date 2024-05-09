@@ -41,4 +41,6 @@ luac.out
 *.hex
 
 
+lazy-lock.json
 plugin/packer_compiled.lua
+gcm-diagnose.log
