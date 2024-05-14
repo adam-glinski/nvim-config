@@ -29,6 +29,11 @@ vim.opt.updatetime = 50
 
 -- vim.cmd('language en_US.utf8')
 
+-- C/C++ case indention fix
+vim.opt.cinoptions = "0,t0,:N"
+vim.opt.cinwords = "if,else,switch,case,for,while,do"
+vim.opt.cindent = true
+
 vim.opt.foldmethod = "syntax"
 vim.opt.foldlevel = 99
 
