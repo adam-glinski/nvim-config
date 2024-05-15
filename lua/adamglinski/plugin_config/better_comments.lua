@@ -1,6 +1,7 @@
 -- Examples
 -- TODO: Yeah def gonna dew it later
 -- FIXME: Gotta fix me
+-- CONSIDER: Switching to blah blah blah...
 return {
     'Djancyp/better-comments.nvim',
     config = function ()
@@ -15,7 +16,14 @@ return {
                 },
                 {
                     name = "FIXME",
-                    fg = "orange",
+                    fg = "#427b58",
+                    bg = "",
+                    bold = true,
+                    virtual_text = "",
+                },
+                {
+                    name = "CONSIDER",
+                    fg = "#d65d0e",
                     bg = "",
                     bold = true,
                     virtual_text = "",
