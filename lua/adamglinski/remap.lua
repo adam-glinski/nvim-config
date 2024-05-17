@@ -68,3 +68,6 @@ vim.keymap.set(
 	"<cmd>lua require('spider').motion('b')<CR>",
 	{ desc = "Previous word(spider)" }
 )
+
+-- Neogit mappings
+vim.keymap.set("n", "<leader>gg", function () require("neogit").open({ kind = "auto" }) end, { desc = "Open neogit" })

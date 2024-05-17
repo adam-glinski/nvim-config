@@ -23,6 +23,9 @@ return {
             d = {
                 name = "dap"
             },
+            g = {
+                name = "git"
+            },
             [";"] = {
                 name = "toggles"
             },
