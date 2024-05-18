@@ -1,3 +1,4 @@
+-- TODO: get rid of depracated function calls
 return {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v3.x',
@@ -71,15 +72,15 @@ return {
             vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, {buffer = bufnr, remap = false, desc = "Goto prev diagnostic"})
 
             vim.keymap.set("n", "<leader>lws", function() vim.lsp.buf.workspace_symbol() end, {buffer = bufnr, remap = false, desc = "List workspace symbols"})
-            vim.keymap.set("n", "<leader>ld", function() vim.diagnostic.open_float() end, {buffer = bufnr, remap = false, desc = "Open floating diagnostic"})
+            vim.keymap.set("n", "<leader>ld", "<cmd>Telescope diagnostics<cr>", {buffer = bufnr, remap = false, desc = "Open floating diagnostic"})
             vim.keymap.set("n", "<leader>la", function() vim.lsp.buf.code_action() end, {buffer = bufnr, remap = false, desc = "Code action"})
             vim.keymap.set("n", "<leader>lgr", function() vim.lsp.buf.references() end, {buffer = bufnr, remap = false, desc = "List references"})
             vim.keymap.set("n", "<leader>lr", function() vim.lsp.buf.rename() end, {buffer = bufnr, remap = false, desc = "Rename"})
             vim.keymap.set("n", "<leader>lf", function() vim.lsp.buf.format({formatting_options = { tabSize = 4 }}) end, {buffer = bufnr, remap = false, desc = "Format buffer"})
 
             vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, {buffer = bufnr, remap = false, desc = "Signature help"})
-            -- vim.keymap.set("i", "<C-t>", function() vim.lsp.buf.request() end, {buffer = bufnr, remap = false, desc = "Switch between source/header"})
-            vim.keymap.set("i", "<C-t>", "<cmd>ClangdSwitchSourceHeader<cr>", {buffer = bufnr, remap = false, desc = "Switch between source/header"})
+            vim.keymap.set({"i", "n"}, "<C-t>", "<cmd>ClangdSwitchSourceHeader<cr>", {buffer = bufnr, remap = false, desc = "Switch between source/header"}) -- TODO: Enable only when clangd lsp is loaded
+            vim.keymap.set("n", "<leader>li", function () vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end, {remap = false, desc = "Inlay hints"})
         end)
 
         lspconfig.lua_ls.setup({})
