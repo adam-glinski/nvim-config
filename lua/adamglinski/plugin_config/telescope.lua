@@ -28,7 +28,13 @@ return {
                             height = 0.95,
                             prompt_position = "top",
                         },
-                        sorting_strategy = "ascending"
+                        sorting_strategy = "ascending",
+                        path_display = {smart = true}, -- CONSIDER: Whether to keep it
+                        mappings = {
+                            n = {
+                                ['<C-p>'] = require("telescope.actions.layout").toggle_preview
+                            }
+                        },
                     }
                 }
 
