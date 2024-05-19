@@ -88,18 +88,17 @@ return {
             vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, {buffer = bufnr, remap = false, desc = "Goto next diagnostic"})
             vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, {buffer = bufnr, remap = false, desc = "Goto prev diagnostic"})
 
-            vim.keymap.set("n", "<leader>lws", function() vim.lsp.buf.workspace_symbol() end, {buffer = bufnr, remap = false, desc = "List workspace symbols"})
             vim.keymap.set("n", "<leader>ld", "<cmd>Telescope diagnostics<cr>", {buffer = bufnr, remap = false, desc = "Open floating diagnostic"})
             vim.keymap.set("n", "<leader>la", function() vim.lsp.buf.code_action() end, {buffer = bufnr, remap = false, desc = "Code action"})
-            vim.keymap.set("n", "<leader>lgr", function() vim.lsp.buf.references() end, {buffer = bufnr, remap = false, desc = "List references"})
+            vim.keymap.set("n", "<leader>lR", function() vim.lsp.buf.references() end, {buffer = bufnr, remap = false, desc = "List references"})
             vim.keymap.set("n", "<leader>lr", function() vim.lsp.buf.rename() end, {buffer = bufnr, remap = false, desc = "Rename"})
             vim.keymap.set("n", "<leader>lf", function() vim.lsp.buf.format({formatting_options = { tabSize = 4 }}) end, {buffer = bufnr, remap = false, desc = "Format buffer"})
 
             vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, {buffer = bufnr, remap = false, desc = "Signature help"})
+            vim.keymap.set("n", "<leader>li", function () vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({})) end, {remap = false, desc = "Inlay hints"})
             if client.name == "clangd" then
                 vim.keymap.set({"i", "n"}, "<C-t>", "<cmd>ClangdSwitchSourceHeader<cr>", {buffer = bufnr, remap = false, desc = "Switch between source/header"})
             end
-            vim.keymap.set("n", "<leader>li", function () vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({})) end, {remap = false, desc = "Inlay hints"})
         end)
 
         local cmp = require("cmp")
