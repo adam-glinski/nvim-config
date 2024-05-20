@@ -88,7 +88,8 @@ return {
             vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, {buffer = bufnr, remap = false, desc = "Goto next diagnostic"})
             vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, {buffer = bufnr, remap = false, desc = "Goto prev diagnostic"})
 
-            vim.keymap.set("n", "<leader>ld", "<cmd>Telescope diagnostics<cr>", {buffer = bufnr, remap = false, desc = "Open floating diagnostic"})
+            vim.keymap.set("n", "<leader>ld", function() vim.diagnostic.open_float() end, {buffer = bufnr, remap = false, desc = "Open floating diagnostic"})
+            vim.keymap.set("n", "<leader>lD", "<cmd>Telescope diagnostics<cr>", {buffer = bufnr, remap = false, desc = "Open floating diagnostic"})
             vim.keymap.set("n", "<leader>la", function() vim.lsp.buf.code_action() end, {buffer = bufnr, remap = false, desc = "Code action"})
             vim.keymap.set("n", "<leader>lR", function() vim.lsp.buf.references() end, {buffer = bufnr, remap = false, desc = "List references"})
             vim.keymap.set("n", "<leader>lr", function() vim.lsp.buf.rename() end, {buffer = bufnr, remap = false, desc = "Rename"})
