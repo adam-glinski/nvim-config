@@ -71,3 +71,5 @@ vim.keymap.set(
 
 -- Neogit mappings
 vim.keymap.set("n", "<leader>gg", function () require("neogit").open({ kind = "auto" }) end, { desc = "Open neogit" })
+vim.keymap.set("n", "<leader>gh", "<cmd>Gitsigns stage_hunk<cr>", { desc = "Stage hunk" })
+vim.keymap.set("n", "<leader>gH", "<cmd>Gitsigns undo_stage_hunk<cr>", { desc = "Undo Stage hunk" })
