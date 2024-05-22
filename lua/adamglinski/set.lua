@@ -38,3 +38,4 @@ vim.opt.foldmethod = "syntax"
 vim.opt.foldlevel = 99
 
 vim.g.mapleader = " "
+vim.cmd("language en_US")
