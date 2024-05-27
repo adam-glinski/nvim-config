@@ -1,4 +1,4 @@
-
+-- CONSIDER: Removing it since aint using it anymore
 return {
     'nvim-focus/focus.nvim',
     config = function ()
@@ -8,6 +8,7 @@ return {
                 hybridnumber = false,
                 absolutenumber_unfocussed = false,
                 cursorline = false,
+                signcolumn = false,
             },
             config = {
                 autoresize = {
