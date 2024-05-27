@@ -10,7 +10,7 @@ return {
         require "nvim-treesitter.configs".setup {
             -- A list of parser names, or "all" (the five listed parsers should always be installed)
             -- ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "rust", "cpp" },
-
+            ensure_installed = { "html" }, -- For devdocs.nvim
             -- Install parsers synchronously (only applied to `ensure_installed`)
             sync_install = false,
 
