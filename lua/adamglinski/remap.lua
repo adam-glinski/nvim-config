@@ -39,12 +39,17 @@ vim.keymap.set("n", "<leader>ep", "<cmd>e " .. NVIM_DIR .. "\\lua\\adamglinski\\
 -- vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
 -- Window zoom
-local zoomed = false
-    vim.keymap.set("n", "<C-W-Z>", function ()
-        if zoomed then
-            return '<C-W>_ | <C-W>|'
-        else return '<C-W> =' end
-    end)
+-- local isWindowZoomed = false
+--     vim.keymap.set("n", "<C-w>z", function ()
+--         isWindowZoomed = not isWindowZoomed
+--         if isWindowZoomed then
+--             print("Zoomin in")
+--             return "<C-w>_ \\| <C-w>|"
+--         else
+--             print("Zoomin out")
+--             return '<C-w> ='
+--         end
+--     end)
 -- vim.keymap.set("n", "<leader><leader>", function() vim.cmd("so") end, { desc = "Source file" })
 vim.keymap.set("n", "<leader>db", "<cmd> DapToggleBreakpoint <cr>", { desc = "Toggle breakpoint" })
 vim.keymap.set("n", "<leader>dr", "<cmd> DapContinue <cr>", { desc = "Start or continue debugging" })

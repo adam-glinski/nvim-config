@@ -37,5 +37,7 @@ vim.opt.cindent = true
 vim.opt.foldmethod = "syntax"
 vim.opt.foldlevel = 99
 
+vim.opt.signcolumn = "yes"
+
 vim.g.mapleader = " "
 vim.cmd("language en_US")
