@@ -39,42 +39,32 @@ vim.keymap.set("n", "<leader>ep", "<cmd>e " .. NVIM_DIR .. "\\lua\\adamglinski\\
 -- vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
 -- Window zoom
--- local isWindowZoomed = false
---     vim.keymap.set("n", "<C-w>z", function ()
---         isWindowZoomed = not isWindowZoomed
---         if isWindowZoomed then
---             print("Zoomin in")
---             return "<C-w>_ \\| <C-w>|"
---         else
---             print("Zoomin out")
---             return '<C-w> ='
---         end
---     end)
--- vim.keymap.set("n", "<leader><leader>", function() vim.cmd("so") end, { desc = "Source file" })
+vim.keymap.set("n", "<C-w>z", "<cmd>MaximizerToggle!<cr>", { desc = "Zoom in/out" })
+
 vim.keymap.set("n", "<leader>db", "<cmd> DapToggleBreakpoint <cr>", { desc = "Toggle breakpoint" })
 vim.keymap.set("n", "<leader>dr", "<cmd> DapContinue <cr>", { desc = "Start or continue debugging" })
 
 -- Nvim-spider remaps
 vim.keymap.set(
-	{ "n", "o", "x" },
-	"w",
-	"<cmd>lua require('spider').motion('w')<CR>",
-	{ desc = "Next word(spider)" }
+    { "n", "o", "x" },
+    "w",
+    "<cmd>lua require('spider').motion('w')<CR>",
+    { desc = "Next word(spider)" }
 )
 vim.keymap.set(
-	{ "n", "o", "x" },
-	"e",
-	"<cmd>lua require('spider').motion('e')<CR>",
-	{ desc = "Next end of word(spider)" }
+    { "n", "o", "x" },
+    "e",
+    "<cmd>lua require('spider').motion('e')<CR>",
+    { desc = "Next end of word(spider)" }
 )
 vim.keymap.set(
-	{ "n", "o", "x" },
-	"b",
-	"<cmd>lua require('spider').motion('b')<CR>",
-	{ desc = "Previous word(spider)" }
+    { "n", "o", "x" },
+    "b",
+    "<cmd>lua require('spider').motion('b')<CR>",
+    { desc = "Previous word(spider)" }
 )
 
 -- Neogit mappings
-vim.keymap.set("n", "<leader>gg", function () require("neogit").open({ kind = "auto" }) end, { desc = "Open neogit" })
+vim.keymap.set("n", "<leader>gg", function() require("neogit").open({ kind = "auto" }) end, { desc = "Open neogit" })
 vim.keymap.set("n", "<leader>gh", "<cmd>Gitsigns stage_hunk<cr>", { desc = "Stage hunk" })
 vim.keymap.set("n", "<leader>gH", "<cmd>Gitsigns undo_stage_hunk<cr>", { desc = "Undo Stage hunk" })

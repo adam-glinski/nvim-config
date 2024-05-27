@@ -41,3 +41,6 @@ vim.opt.signcolumn = "yes"
 
 vim.g.mapleader = " "
 vim.cmd("language en_US")
+
+-- Vim maximizer settings
+vim.api.nvim_set_var("maximizer_set_default_mapping", 0)
