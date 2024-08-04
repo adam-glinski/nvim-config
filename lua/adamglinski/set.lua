@@ -45,3 +45,5 @@ vim.api.nvim_set_var("maximizer_set_default_mapping", 0)
 
 -- Indent blankline settings
 vim.api.nvim_set_var("ibl.config.scope.show_start", false)
+
+vim.opt.cursorline = true

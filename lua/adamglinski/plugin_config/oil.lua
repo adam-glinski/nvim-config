@@ -18,6 +18,9 @@ return {
             win_options = {
                 nu = false,
                 rnu = false,
+            },
+            keymaps = {
+                ["<esc>"] = 'actions.close'
             }
         })
 

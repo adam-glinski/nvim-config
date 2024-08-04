@@ -56,6 +56,8 @@ return {
                     lspconfig[server_name].setup({}) -- Automatic lsp server setup
                 end,
                 clangd = function ()
+                    -- local filetype = vim.api.nvim_buf_get_option(bufnr, 'filetype')
+                    -- local filetype = vim.api.nvim_get_option_value("filetype", {buf = bufnr});
                     lspconfig.clangd.setup({
                         cmd = {"clangd"},
                         single_file_support=true,
@@ -95,7 +97,7 @@ return {
             vim.keymap.set("n", "<leader>lr", function() vim.lsp.buf.rename() end, {buffer = bufnr, remap = false, desc = "Rename"})
             vim.keymap.set("n", "<leader>lf", function() vim.lsp.buf.format({formatting_options = { tabSize = 4 }}) end, {buffer = bufnr, remap = false, desc = "Format buffer"})
 
-            vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, {buffer = bufnr, remap = false, desc = "Signature help"})
+            vim.keymap.set({"i", "n"}, "<C-h>", function() vim.lsp.buf.signature_help() end, {buffer = bufnr, remap = false, desc = "Signature help"})
             vim.keymap.set("n", "<leader>li", function () vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({})) end, {remap = false, desc = "Inlay hints"})
             if client.name == "clangd" then
                 vim.keymap.set({"i", "n"}, "<C-t>", "<cmd>ClangdSwitchSourceHeader<cr>", {buffer = bufnr, remap = false, desc = "Switch between source/header"})
