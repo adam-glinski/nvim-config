@@ -86,6 +86,7 @@ return {
 
         lsp.on_attach(function(client, bufnr)
             vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, {buffer = bufnr, remap = false, desc = "Go to definition"})
+            vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, {buffer = bufnr, remap = false, desc = "Go to declaration"})
             vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, {buffer = bufnr, remap = false, desc = "Hover information"})
             vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, {buffer = bufnr, remap = false, desc = "Goto next diagnostic"})
             vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, {buffer = bufnr, remap = false, desc = "Goto prev diagnostic"})
