@@ -1,36 +1,25 @@
 
 return {
     "folke/which-key.nvim",
+    dependencies = {
+        { 'echasnovski/mini.icons', version = false },
+    },
     config = function ()
         vim.o.timeout = true
         vim.o.timeoutlen = 300
 
-        require("which-key").setup({})
+        local wk = require("which-key")
 
         local mapping = {
-            f = {
-                name = "find",
-            },
-            t = {
-                name = "terminal",
-            },
-            l = {
-                name = "lsp",
-            },
-            h = {
-                name = "harpoon"
-            },
-            d = {
-                name = "dap"
-            },
-            g = {
-                name = "git"
-            },
-            [";"] = {
-                name = "toggles"
-            },
+            { "<leader>;", group = "toggles" },
+            { "<leader>d", group = "debug" },
+            { "<leader>f", group = "find" },
+            { "<leader>g", group = "git" },
+            { "<leader>h", group = "harpoon" },
+            { "<leader>l", group = "lsp" },
+            { "<leader>t", group = "terminal" },
         }
-
-        require("which-key").register(mapping, {prefix="<leader>"})
+        wk.add(mapping)
+        -- require("which-key").register(mapping, {prefix="<leader>"})
     end
 }

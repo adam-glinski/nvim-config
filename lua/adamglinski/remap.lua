@@ -33,9 +33,9 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
     { desc = "Replace all occurrences" })
 -- vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true }) -- Disabled since on windows...
 
--- TODO: Think of a better keymap
-vim.keymap.set("n", "<leader>ep", "<cmd>e " .. NVIM_DIR .. "\\lua\\adamglinski\\plugin.lua<CR>",
-    { desc = "Edit plugin file" })
+-- -- TODO: Think of a better keymap
+-- vim.keymap.set("n", "<leader>ep", "<cmd>e " .. NVIM_DIR .. "\\lua\\adamglinski\\plugin.lua<CR>",
+--     { desc = "Edit plugin file" })
 -- vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
 -- Window zoom
