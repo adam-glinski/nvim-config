@@ -28,12 +28,16 @@ local kind_icons = {
 
 return {
     'VonHeikemen/lsp-zero.nvim',
-    branch = 'v3.x',
+    event = { "BufReadPre", "BufNewFile" },
+    branch = 'v4.x',
     dependencies = {
         -- LSP Support
         { 'neovim/nvim-lspconfig' },     -- Required
-        { 'williamboman/mason.nvim' },   -- Optional
-        { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+        -- { 'williamboman/mason.nvim' },   -- Optional
+        -- { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+        { 'williamboman/mason.nvim', version="^1.0.0" },   -- Optional
+        { 'williamboman/mason-lspconfig.nvim' , version="^1.0.0"}, -- Optional
+        { 'nvim-java/nvim-java' },
 
         -- Autocompletion
         { 'hrsh7th/nvim-cmp' },           -- Required
@@ -50,26 +54,6 @@ return {
         local lspconfig = require('lspconfig')
         require("neodev").setup()
         require("mason").setup({})
-        require("mason-lspconfig").setup({
-            handlers = {
-                function (server_name)
-                    lspconfig[server_name].setup({}) -- Automatic lsp server setup
-                end,
-                clangd = function ()
-                    -- local filetype = vim.api.nvim_buf_get_option(bufnr, 'filetype')
-                    -- local filetype = vim.api.nvim_get_option_value("filetype", {buf = bufnr});
-                    lspconfig.clangd.setup({
-                        cmd = {"clangd"},
-                        single_file_support=true,
-                        -- cmd = {"clangd", "--fallback-style='{BasedOnStyle: LLVM, IndentWidth: 4}'"},
-                    })
-                end
-            },
-            ensure_installed = {
-                'lua_ls',
-            },
-        })
-
         -- lsp.set_sign_icons({
         --     error = '✘',
         --     warn = '▲',
@@ -77,14 +61,16 @@ return {
         --     info = '»'
         -- })
 
-        lsp.set_sign_icons({
-            error = '',
-            warn = '',
-            hint = '',
-            info = ''
-        })
 
-        lsp.on_attach(function(client, bufnr)
+        -- local sign_icons = {
+        --     [vim.diagnostic.severity.ERROR] = '',
+        --     [vim.diagnostic.severity.WARN] = '',
+        --     [vim.diagnostic.severity.HINT] = '',
+        --     [vim.diagnostic.severity.INFO] = ''
+        -- }
+
+
+        local on_attach = function(client, bufnr)
             vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, {buffer = bufnr, remap = false, desc = "Go to definition"})
             vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, {buffer = bufnr, remap = false, desc = "Go to declaration"})
             vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, {buffer = bufnr, remap = false, desc = "Hover information"})
@@ -103,10 +89,10 @@ return {
             if client.name == "clangd" then
                 vim.keymap.set({"i", "n"}, "<C-t>", "<cmd>ClangdSwitchSourceHeader<cr>", {buffer = bufnr, remap = false, desc = "Switch between source/header"})
             end
-        end)
+        end
 
         local cmp = require("cmp")
-        local cmp_action = require("lsp-zero").cmp_action()
+        local cmp_action = lsp.cmp_action()
         local cmp_select = {behavior = cmp.SelectBehavior.Select}
         cmp.setup.cmdline({'/', '?'}, {
             mapping = cmp.mapping.preset.cmdline(),
@@ -159,5 +145,59 @@ return {
                 -- { name = "orgmode" },
             },
         })
+
+        require("java").setup()
+
+        lsp.extend_lspconfig({
+            capabilities = require('cmp_nvim_lsp').default_capabilities(),
+            lsp_attach = on_attach,
+            float_border = 'rounded',
+            sign_text = true,
+        })
+    
+
+        require("mason-lspconfig").setup({
+            handlers = {
+                function (server_name)
+                    lspconfig[server_name].setup({}) -- Automatic lsp server setup
+                                    end,
+                clangd = function ()
+                    -- local filetype = vim.api.nvim_buf_get_option(bufnr, 'filetype')
+                    -- local filetype = vim.api.nvim_get_option_value("filetype", {buf = bufnr});
+                    lspconfig.clangd.setup({
+                        cmd = {"clangd"},
+                        single_file_support=true,
+                        -- cmd = {"clangd", "--fallback-style='{BasedOnStyle: LLVM, IndentWidth: 4}'"},
+                    })
+                end
+            },
+            ensure_installed = {
+                'lua_ls',
+            },
+        })
+
+        vim.diagnostic.config({
+            virtual_text = {
+                -- Only show virtual text for error messages
+                severity = vim.diagnostic.severity.ERROR,
+            },
+            signs = {
+                text = {
+                    [vim.diagnostic.severity.ERROR] = '',
+                    [vim.diagnostic.severity.WARN] = '',
+                    [vim.diagnostic.severity.HINT] = '',
+                    [vim.diagnostic.severity.INFO] = ''
+                }
+            },
+            update_in_insert = false,
+            -- severity_sort = true,
+            -- float = {
+                --     border = "single",
+                --     width = 60,
+                --     height = 10,
+                -- },
+            })
+
+
     end
 }
