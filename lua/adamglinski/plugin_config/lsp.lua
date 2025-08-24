@@ -155,6 +155,7 @@ return {
             },
             sources = {
                 { name = "nvim_lsp" },
+                { name = "render-markdown"},
                 { name = "path" },
                 { name = "buffer" },
                 -- { name = "orgmode" },
