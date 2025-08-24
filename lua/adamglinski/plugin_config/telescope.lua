@@ -11,7 +11,7 @@ return {
         config = function()
             local telescope = require("telescope")
             local builtin = require('telescope.builtin')
-                vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "Find file" })
+                -- vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "Find file" })
                 vim.keymap.set('n', '<leader>fw', builtin.live_grep, { desc = "Find word" })
                 vim.keymap.set('n', '<leader>fc', builtin.grep_string, { desc = "Find word under cursor" })
                 vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { desc = "Find recent" })

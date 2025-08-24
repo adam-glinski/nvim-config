@@ -8,7 +8,7 @@ return {
         base_path = vim.fn.getcwd(), -- Base directory for file indexing
         max_results = 100, -- Maximum search results to display
         max_threads = 4, -- Maximum threads for fuzzy search
-        prompt = '🪿 ', -- Input prompt symbol
+        prompt = ' ', -- Input prompt symbol
         title = 'FFF Files', -- Window title
         ui_enabled = true, -- Enable UI (default: true)
 
@@ -37,7 +37,7 @@ return {
 
         -- Layout configuration (alternative to width/height)
         layout = {
-            prompt_position = 'top', -- Position of prompt ('top' or 'bottom')
+            prompt_position = 'bottom', -- Position of prompt ('top' or 'bottom')
             preview_position = 'right', -- Position of preview ('right' or 'left')
             preview_width = 0.4, -- Width of preview pane
             height = 0.8,       -- Window height
@@ -109,13 +109,13 @@ return {
             show_scores = false, -- Show scoring information (toggle with F2)
         },
     },
-    --[[ keys = {
+    keys = {
         {
             "ff",                           -- try it if you didn't it is a banger keybinding for a picker
             function()
                 require("fff").find_files() -- or find_in_git_root() if you only want git files
             end,
-            desc = "Open file picker",
+            desc = "Find file (fff)",
         },
-    }, ]]
+    },
 }
