@@ -40,11 +40,11 @@ return {
         { 'nvim-java/nvim-java' },
 
         -- Autocompletion
-        { 'hrsh7th/nvim-cmp' },             -- Required
-        { 'hrsh7th/cmp-nvim-lsp' },         -- Required
-        { 'hrsh7th/cmp-buffer' },           -- Optional
-        { 'hrsh7th/cmp-path' },             -- Optional
-        { 'hrsh7th/cmp-cmdline' },          -- Optional
+        -- { 'hrsh7th/nvim-cmp' },             -- Required
+        -- { 'hrsh7th/cmp-nvim-lsp' },         -- Required
+        -- { 'hrsh7th/cmp-buffer' },           -- Optional
+        -- { 'hrsh7th/cmp-path' },             -- Optional
+        -- { 'hrsh7th/cmp-cmdline' },          -- Optional
         { 'L3MON4D3/LuaSnip' },             -- Required
         { 'rafamadriz/friendly-snippets' }, -- Optional (Added by me)
         { 'folke/neodev.nvim' },
@@ -106,7 +106,7 @@ return {
             end
         end
 
-        local cmp = require("cmp")
+        --[[ local cmp = require("cmp")
         local cmp_action = lsp.cmp_action()
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
         cmp.setup.cmdline({ '/', '?' }, {
@@ -160,12 +160,12 @@ return {
                 { name = "buffer" },
                 -- { name = "orgmode" },
             },
-        })
+        }) ]]
 
         require("java").setup()
 
         lsp.extend_lspconfig({
-            capabilities = require('cmp_nvim_lsp').default_capabilities(),
+            -- capabilities = require('cmp_nvim_lsp').default_capabilities(),
             lsp_attach = on_attach,
             float_border = 'rounded',
             sign_text = true,
